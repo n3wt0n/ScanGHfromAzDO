@@ -16,16 +16,3 @@ steps:
 - script: |
      npm install
   displayName: 'npm install and test'
-
-- script: |
-    wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
-    chmod +x codeql-runner-linux
-  displayName: 'Get latest CodeQL package. Install on Agent.'
-
-- script: |
-    ./codeql-runner-linux init --repository octodemo/ghas-azure-devops-code-scanning --github-url https://github.com --github-auth $GITHUB_PAT --config-file .github/codeql/codeql-config.yml 
-  displayName: 'Initialize CodeQ Executable and create a CodeQL database'
-
-- script: |
-    ./codeql-runner-linux analyze --repository octodemo/ghas-azure-devops-code-scanning --github-url https://github.com --github-auth $GITHUB_PAT --commit df4591a80c500ed0f0f85c8b48fcde0529df639e --ref refs/heads/master
-  displayName: 'Populate the CodeQL runner databases, analyze them, and upload the results to GitHub.'
