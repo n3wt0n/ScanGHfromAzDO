@@ -2,7 +2,7 @@
 # Upload any vulnerabilities back into my GitHub Repo for developer review.
 
 trigger:
-- master
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
